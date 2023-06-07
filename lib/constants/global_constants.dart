@@ -9,3 +9,8 @@ TextStyle greenstyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontFamily: "IndieFlower",
 );
+TextStyle bigwhite=TextStyle(
+  color: Colors.white,
+  fontWeight: FontWeight.bold,
+  fontSize: 23
+);
