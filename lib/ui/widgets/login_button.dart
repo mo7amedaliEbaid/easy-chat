@@ -6,9 +6,11 @@ Widget LoginButton(BuildContext context) {
   Size size = MediaQuery.of(context).size;
   return InkWell(
     child: Container(
-      margin: EdgeInsets.fromLTRB(0, 20, 0, 50),
-      height: size.height * .08,
-      width: size.width * .7,
+      margin: size.width < 480
+          ? EdgeInsets.fromLTRB(0, 20, 0, 20)
+          : EdgeInsets.fromLTRB(0, 20, 0, 20),
+      height: size.width < 480 ? size.height * .08 : size.height * .15,
+      width: size.width < 480 ? size.width * .7 : size.width * .3,
       decoration: BoxDecoration(
           color: lightgreen, borderRadius: BorderRadius.circular(20)),
       child: Center(
