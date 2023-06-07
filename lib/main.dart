@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           Locale('en', 'US'),
           Locale('ar', 'EG'),
         ],
-        localeResolutionCallback: (deviceLocale, supportedLocales) {
+        /*localeResolutionCallback: (deviceLocale, supportedLocales) {
           for (var locale in supportedLocales) {
             if (locale.languageCode == deviceLocale!.languageCode &&
                 locale.countryCode == deviceLocale.countryCode) {
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
             }
           }
           return supportedLocales.first;
-        },
+        },*/
         debugShowCheckedModeBanner: false,
         home: HomeScreen(),
       );

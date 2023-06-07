@@ -1,3 +1,4 @@
+import 'package:chat_app/ui/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/global_constants.dart';
@@ -5,6 +6,9 @@ import '../../constants/global_constants.dart';
 Widget RegisterButton(BuildContext context) {
   Size size = MediaQuery.of(context).size;
   return InkWell(
+    onTap: (){
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>RegisterScreen()));
+    },
     child: Container(
       margin: size.width < 480
           ? EdgeInsets.fromLTRB(0, 50, 0, 20)

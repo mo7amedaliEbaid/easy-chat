@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/app_constants.dart';
 import '../../constants/global_constants.dart';
@@ -16,7 +17,6 @@ class LanguageButtons extends StatefulWidget {
 
 class _LanguageButtonsState extends State<LanguageButtons> {
   bool isarabicchosen = false;
-
   Locale _changeLanguage(Language language, context) {
     Locale _a;
     switch (language.languageCode) {
@@ -46,12 +46,14 @@ class _LanguageButtonsState extends State<LanguageButtons> {
           return Row(
             children: [
               InkWell(
-                onTap: () {
+                onTap: () async{
                   setState(() {
                     isarabicchosen = false;
                     data.updateLocale(_changeLanguage(
                         Language.languageList().first, context));
                   });
+                  SharedPreferences prefs = await SharedPreferences.getInstance();
+                  prefs.setBool("is_arabic",false);
                 },
                 child: Container(
                   height:
@@ -74,12 +76,14 @@ class _LanguageButtonsState extends State<LanguageButtons> {
                 width: size.width * .02,
               ),
               InkWell(
-                onTap: () {
+                onTap: ()async {
                   setState(() {
                     isarabicchosen = true;
                     data.updateLocale(
                         _changeLanguage(Language.languageList().last, context));
                   });
+                  SharedPreferences prefs = await SharedPreferences.getInstance();
+                  prefs.setBool("is_arabic",true);
                 },
                 child: Container(
                   height:
