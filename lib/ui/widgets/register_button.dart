@@ -6,10 +6,29 @@ import '../../constants/global_constants.dart';
 
 Widget RegisterButton(BuildContext context) {
   Size size = MediaQuery.sizeOf(context);
+  Route _createRoute() {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const RegisterScreen(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0.0, 1.0);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+    );
+  }
+
   return InkWell(
     onTap: () {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => RegisterScreen()));
+      Navigator.of(context).push(_createRoute());
     },
     child: Container(
       margin: size.width < 480

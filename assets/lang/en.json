@@ -12,6 +12,7 @@
   "currency": "Currency",
   "about_ebaid_store":"About Ebaid Store",
   "enter_your_email":"Type Your Email",
+  "emailvalidate": "Please Enter Your Required Email",
   "password":"Password",
   "type_your_password":"Type Your Password",
   "forgot_pass":"Forgot Your Password?",
@@ -24,5 +25,6 @@
   "order_status": "Order Status",
   "cart": "Cart",
   "account": "My Account",
-  "client_name": "Client Name"
+  "client_name": "Client Name",
+  "pass_validate": "Please Enter Your Required Password"
 }

@@ -31,12 +31,12 @@ class OnBoardingScreen extends StatelessWidget {
 Widget buildnormalonboard_body(BuildContext context) {
   Size size = MediaQuery.of(context).size;
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: size.width*.1, vertical: size.height*.1),
+    padding: EdgeInsets.symmetric(horizontal: size.width*.1, vertical: size.height*.05),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         welcometext(context),
-        Lottie.asset('assets/lottie/envelope.json'),
+        Lottie.asset('assets/lottie/online-chat.json',height: size.height*.45,width: size.width*.85),
         RegisterButton(context),
         LoginButton(context),
        // LanguageButtons(),

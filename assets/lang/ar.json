@@ -12,6 +12,7 @@
   "currency": "العملة",
   "about_ebaid_store":"عن متجر عبيد",
   "enter_your_email":"سجل بريدك الالكترونى",
+  "emailvalidate": "ادخل البريد الالكترونى",
   "password":"الرقم السري",
   "type_your_password":"ادخل الرقم السري",
   "forgot_pass":"نسيت الرقم السري؟",
@@ -24,6 +25,6 @@
   "order_status": "تفاصيل الطلب",
   "cart": "السلة",
   "account": "حسابى",
-  "client_name": "اسم العميل"
-
+  "client_name": "اسم العميل",
+  "pass_validate": "من فضلك ادخل الرقم السرى"
 }
