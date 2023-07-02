@@ -17,40 +17,27 @@ class LanguageButtons extends StatefulWidget {
 
 class _LanguageButtonsState extends State<LanguageButtons> {
   bool isarabicchosen = false;
-  Locale _changeLanguage(Language language, context) {
-    Locale _a;
-    switch (language.languageCode) {
-      case AppConstants.ENGLISH:
-        _a = Locale(language.languageCode, "US");
 
-        break;
-      case AppConstants.Arabic:
-        _a = Locale(language.languageCode, "EG");
-
-        break;
-
-      default:
-        _a = Locale(language.languageCode, 'US');
-    }
-    return _a;
-  }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
         padding: size.width < 480
-            ? EdgeInsets.fromLTRB(30, 50, 30, 20)
-            : EdgeInsets.fromLTRB(0, 50, 0, 20),
+            ? EdgeInsets.fromLTRB(30, 20, 30, 0)
+            : EdgeInsets.fromLTRB(0, 0, 0, 0),
         child: Consumer<LocaleProvider>(builder: (context, data, _) {
           return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               InkWell(
                 onTap: () async{
                   setState(() {
                     isarabicchosen = false;
-                    data.updateLocale(_changeLanguage(
-                        Language.languageList().first, context));
+                    data.updateLocale(data.changeLanguage(
+                        Language
+                            .languageList()
+                            .first, context));
                   });
                   SharedPreferences prefs = await SharedPreferences.getInstance();
                   prefs.setBool("is_arabic",false);
@@ -64,9 +51,7 @@ class _LanguageButtonsState extends State<LanguageButtons> {
                       borderRadius: BorderRadius.circular(15)),
                   child: Center(
                     child: Text(
-                      AppLocalization.of(context)
-                          .getTranslatedValue("english")
-                          .toString(),
+                      "English",
                       style: normalwhite,
                     ),
                   ),
@@ -79,8 +64,10 @@ class _LanguageButtonsState extends State<LanguageButtons> {
                 onTap: ()async {
                   setState(() {
                     isarabicchosen = true;
-                    data.updateLocale(
-                        _changeLanguage(Language.languageList().last, context));
+                    data.updateLocale(data.changeLanguage(
+                        Language
+                            .languageList()
+                            .last, context));
                   });
                   SharedPreferences prefs = await SharedPreferences.getInstance();
                   prefs.setBool("is_arabic",true);
@@ -94,9 +81,7 @@ class _LanguageButtonsState extends State<LanguageButtons> {
                       borderRadius: BorderRadius.circular(15)),
                   child: Center(
                     child: Text(
-                      AppLocalization.of(context)
-                          .getTranslatedValue("arabic")
-                          .toString(),
+                      "العربية",
                       style: normalwhite,
                     ),
                   ),

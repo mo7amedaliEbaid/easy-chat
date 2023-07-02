@@ -32,8 +32,8 @@ Widget RegisterButton(BuildContext context) {
     },
     child: Container(
       margin: size.width < 480
-          ? EdgeInsets.fromLTRB(0, 50, 0, 20)
-          : EdgeInsets.fromLTRB(0, 50, 0, 20),
+          ? EdgeInsets.fromLTRB(0, 40, 0, 20)
+          : EdgeInsets.fromLTRB(0, 40, 0, 20),
       height: size.width < 480 ? size.height * .08 : size.height * .15,
       width: size.width < 480 ? size.width * .7 : size.width * .3,
       decoration: BoxDecoration(

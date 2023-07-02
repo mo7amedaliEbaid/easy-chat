@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+
+final GlobalKey<RefreshIndicatorState> refreshIndicatorKey =
+new GlobalKey<RefreshIndicatorState>();
 Color scafold_background = Color(0xffebf5f5);
 Color mygreen = Color(0xff097533);
 Color lightgreen = Color(0xff21db69);
