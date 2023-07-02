@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Color scafold_background = Color(0xfff7f9fa);
+Color scafold_background = Color(0xffebf5f5);
 Color mygreen = Color(0xff097533);
 Color lightgreen = Color(0xff21db69);
 Color unchosencolor=Color(0xff1cfca6);

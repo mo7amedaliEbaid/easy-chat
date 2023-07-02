@@ -1,6 +1,6 @@
 import 'package:chat_app/providers/locale_provider.dart';
 import 'package:chat_app/services/localization.dart';
-import 'package:chat_app/ui/screens/home_screen.dart';
+import 'package:chat_app/ui/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           return supportedLocales.first;
         },*/
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+        home: OnBoardingScreen(),
       );
     });
   }
