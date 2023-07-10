@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import '../pickers/user_image_picker.dart';
+import 'pickers/user_image_picker.dart';
 
 class AuthForm extends StatefulWidget {
   final void Function(String email, String password, String username,
