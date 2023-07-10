@@ -1,17 +1,17 @@
 import 'dart:async';
 import 'dart:developer' as developer;
-import 'package:chat_app/constants/global_constants.dart';
-import 'package:chat_app/constants/texts.dart';
-import 'package:chat_app/ui/widgets/login_button.dart';
-import 'package:chat_app/ui/widgets/register_button.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../constants/global_constants.dart';
+import '../../constants/texts.dart';
 import '../../services/localization.dart';
 import '../widgets/language_buttons.dart';
+import '../widgets/login_button.dart';
+import '../widgets/register_button.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -66,7 +66,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           : RefreshIndicator(
               key: refreshIndicatorKey,
               onRefresh: _refresh,
-              child: _connectionStatus != ConnectivityResult.none
+              child: _connectionStatus == ConnectivityResult.none
                   ? LayoutBuilder(
                       builder: (BuildContext ctx, BoxConstraints constraints) {
                         if (constraints.maxWidth < 480) {
@@ -130,6 +130,7 @@ Widget buildnormalonboard_body(BuildContext context) {
 
 Widget buildwideonboard_body(BuildContext context) {
   Size size = MediaQuery.sizeOf(context);
+  developer.log(size.width.toString());
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [

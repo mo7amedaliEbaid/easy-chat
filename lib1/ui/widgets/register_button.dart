@@ -1,8 +1,9 @@
-import 'package:chat_app/constants/texts.dart';
-import 'package:chat_app/ui/screens/register_screen.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../constants/global_constants.dart';
+import '../../constants/texts.dart';
+import '../screens/register_screen.dart';
 
 Widget RegisterButton(BuildContext context) {
   Size size = MediaQuery.sizeOf(context);

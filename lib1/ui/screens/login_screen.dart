@@ -1,5 +1,6 @@
-import 'package:chat_app/constants/global_constants.dart';
 import 'package:flutter/material.dart';
+
+import '../../constants/global_constants.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

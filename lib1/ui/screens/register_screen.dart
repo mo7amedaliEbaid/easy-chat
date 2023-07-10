@@ -1,9 +1,10 @@
-import 'package:chat_app/constants/global_constants.dart';
-import 'package:chat_app/providers/auth_provider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
+import '../../constants/global_constants.dart';
+import '../../providers/auth_provider.dart';
 import '../../services/localization.dart';
 import '../widgets/okregister_button.dart';
 
@@ -32,7 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               padding: size.width < 480
                   ? EdgeInsets.symmetric(
                       vertical: size.height * .1, horizontal: size.width * .1)
-                  : EdgeInsets.fromLTRB(120, 120, 120, 40),
+                  : EdgeInsets.symmetric( vertical: size.height * .05, horizontal: size.width * .3),
               child: Column(
                 children: [
                   Lottie.asset('assets/lottie/register.json',
@@ -59,13 +60,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),*/
                   Container(
                     margin: EdgeInsets.only(bottom: 30),
-                    padding: size.width < 480
+                    /*padding: size.width < 480
                         ? EdgeInsets.symmetric(horizontal: 10)
-                        : EdgeInsets.symmetric(horizontal: 20),
+                        : EdgeInsets.symmetric(horizontal: 20),*/
                     height:
-                        size.width < 480 ? size.height * .06 : size.height * .1,
-                    width:
-                        size.width < 480 ? size.width * .85 : size.width * .7,
+                        size.width < 480 ? size.height * .06 : size.height * .07,
+                   /* width:
+                        size.width < 480 ? size.width * .85 : size.width * .7,*/
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: Colors.deepPurple, width: 2)),

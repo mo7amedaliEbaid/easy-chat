@@ -1,51 +1,53 @@
-import 'package:chat_app/providers/auth_provider.dart';
-import 'package:chat_app/providers/locale_provider.dart';
-import 'package:chat_app/services/localization.dart';
-import 'package:chat_app/ui/screens/onboarding_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:provider/provider.dart';
 
-void main()async {
+import './screens/auth_screen.dart';
+import './screens/splash_screen.dart';
+import './screens/chat_screen.dart';
+import 'firebase_options.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (_) => LocaleProvider()),
-    ChangeNotifierProvider(create: (_) => AuthProvider()),
-  ], child: MyApp()));
+
+  await Firebase.initializeApp(
+      name: "com.example.chat_app",
+      options: DefaultFirebaseOptions.currentPlatform);
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return Consumer<LocaleProvider>(builder: (context, localedata, _) {
-      return MaterialApp(
-        locale: localedata.locale,
-        localizationsDelegates: [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-          AppLocalization.delegate,
-        ],
-        supportedLocales: [
-          Locale('en', 'US'),
-          Locale('ar', 'EG'),
-        ],
-        /*localeResolutionCallback: (deviceLocale, supportedLocales) {
-          for (var locale in supportedLocales) {
-            if (locale.languageCode == deviceLocale!.languageCode &&
-                locale.countryCode == deviceLocale.countryCode) {
-              return deviceLocale;
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        canvasColor: Colors.black87,
+        primarySwatch: Colors.pink,
+        backgroundColor: Colors.pink,
+        //   accentColor: Colors.deepPurple,
+        //  accentColorBrightness: Brightness.dark,
+        buttonTheme: ButtonTheme.of(context).copyWith(
+          buttonColor: Colors.pink,
+          textTheme: ButtonTextTheme.primary,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+      ),
+      home: StreamBuilder(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (ctx, snapShot) {
+            if (snapShot.connectionState == ConnectionState.waiting) {
+              return SplashScreen();
             }
-          }
-          return supportedLocales.first;
-        },*/
-        debugShowCheckedModeBanner: false,
-        home: OnBoardingScreen(),
-      );
-    });
+            if (snapShot.hasData) {
+              return ChatScreen();
+            } else {
+              return AuthScreen();
+            }
+          }),
+    );
   }
 }
