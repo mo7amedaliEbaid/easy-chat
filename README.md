@@ -1,6 +1,7 @@
 # chat_app
 
-A new Flutter project.
+Not finished yet,    
+working on it.
 
 ## Project Board in Trello
 
