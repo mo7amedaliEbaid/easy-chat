@@ -22,12 +22,12 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  ConnectivityResult _connectionStatus = ConnectivityResult.none;
-  final Connectivity _connectivity = Connectivity();
-  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  //ConnectivityResult _connectionStatus = ConnectivityResult.none;
+  // final Connectivity _connectivity = Connectivity();
+  // late StreamSubscription<ConnectivityResult> _connectivitySubscription;
   bool _isLoading = false;
 
-  @override
+/*  @override
   void dispose() async {
     _connectivitySubscription.cancel();
     super.dispose();
@@ -51,7 +51,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     setState(() {
       _connectionStatus = result;
     });
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -64,10 +64,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 size: 70,
               ),
             )
-          : RefreshIndicator(
+          : /*RefreshIndicator(
               key: refreshIndicatorKey,
               onRefresh: _refresh,
-              child: _connectionStatus == ConnectivityResult.none
+              child:*/
+          buildnormalonboard_body(
+              context) /*_connectionStatus == ConnectivityResult.none
                   ? LayoutBuilder(
                       builder: (BuildContext ctx, BoxConstraints constraints) {
                         if (constraints.maxWidth < 480) {
@@ -95,11 +97,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                       decoration: TextDecoration.underline)),
                         )
                       ],
-                    )),
+                    ))*/
+      ,
     );
   }
 
-  Future<void> _refresh() async {
+/*  Future<void> _refresh() async {
     setState(() {
       _isLoading = true;
     });
@@ -107,26 +110,21 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     setState(() {
       _isLoading = false;
     });
-  }
+  }*/
 }
 
 Widget buildnormalonboard_body(BuildContext context) {
   Size size = MediaQuery.of(context).size;
   return Padding(
     padding: EdgeInsets.symmetric(
-        horizontal: size.width * .1, vertical: size.height * .15),
+        horizontal: size.width * .1, vertical: size.height * .1),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         welcometext(context),
-        InkWell(
-          onTap: (){
-          //  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AuthScreen()));
-          },
-          child: Lottie.asset('assets/lottie/online-chat.json',
-              height: size.height * .45, width: size.width * .85),
-        ),
-        signinwithgoogle(),
+        Lottie.asset('assets/lottie/online-chat.json',
+            height: size.height * .45, width: size.width * .85),
+        Expanded(child: signinwithgoogle()),
         LoginButton(context),
         Expanded(child: LanguageButtons()),
       ],
@@ -134,7 +132,7 @@ Widget buildnormalonboard_body(BuildContext context) {
   );
 }
 
-Widget buildwideonboard_body(BuildContext context) {
+/*Widget buildwideonboard_body(BuildContext context) {
   Size size = MediaQuery.sizeOf(context);
   developer.log(size.width.toString());
   return Row(
@@ -161,4 +159,4 @@ SizedBox(
       )
     ],
   );
-}
+}*/

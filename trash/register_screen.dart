@@ -1,3 +1,4 @@
+/*
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -38,7 +39,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: [
                   Lottie.asset('assets/lottie/register.json',
                       height: size.height * .5),
-                  /* Container(
+                  */
+/* Container(
                   margin: EdgeInsets.only(bottom: 10),
                   padding: size.width < 480
                       ? EdgeInsets.symmetric(horizontal: 10)
@@ -57,16 +59,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       border: InputBorder.none,
                     ),
                   ),
-                ),*/
+                ),*//*
+
                   Container(
                     margin: EdgeInsets.only(bottom: 30),
-                    /*padding: size.width < 480
+                    */
+/*padding: size.width < 480
                         ? EdgeInsets.symmetric(horizontal: 10)
-                        : EdgeInsets.symmetric(horizontal: 20),*/
+                        : EdgeInsets.symmetric(horizontal: 20),*//*
+
                     height:
                         size.width < 480 ? size.height * .06 : size.height * .07,
-                   /* width:
-                        size.width < 480 ? size.width * .85 : size.width * .7,*/
+                   */
+/* width:
+                        size.width < 480 ? size.width * .85 : size.width * .7,*//*
+
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: Colors.deepPurple, width: 2)),
@@ -139,3 +146,4 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
+*/

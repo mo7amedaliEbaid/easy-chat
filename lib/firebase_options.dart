@@ -61,14 +61,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'easy-chat-84b64.appspot.com',
   );
 
- /* static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDuzWvQgS_Tlig1USupOKFDwhfWMR1FVP8',
-    appId: '1:278875593512:ios:7cb48fdbc6e0ec228e8e1d',
-    messagingSenderId: '278875593512',
-    projectId: 'i-chat-instant',
-    databaseURL: 'https://i-chat-instant-default-rtdb.firebaseio.com',
-    storageBucket: 'i-chat-instant.appspot.com',
-    iosClientId: '278875593512-lgd78flp7kjmof9e2kb0ur460d7d6n9o.apps.googleusercontent.com',
-    iosBundleId: 'com.usamamuzaffar.iChatInstant',
-  );*/
 }

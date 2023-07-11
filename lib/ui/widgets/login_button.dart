@@ -1,4 +1,6 @@
 
+import 'package:chat_app/providers/navigationprovider.dart';
+
 import '../screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +11,8 @@ import '../../providers/auth_provider.dart';
 
 Widget LoginButton(BuildContext context) {
   Size size = MediaQuery.sizeOf(context);
-  Route _createRoute() {
+  NavigationProvider navigationProvider=Provider.of(context,listen: false);
+ /* Route _createRoute() {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>
        AuthScreen(),
@@ -27,24 +30,24 @@ Widget LoginButton(BuildContext context) {
         );
       },
     );
-  }
+  }*/
 
-  return Consumer<AuthProvider>(builder: (context,authdata,_){
+  // return Consumer<AuthProvider>(builder: (context,authdata,_){
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(_createRoute());
+        Navigator.of(context).push(navigationProvider.createRoute(AuthScreen())/*_createRoute()*/);
       },
       child: Container(
-        margin: size.width < 480
-            ? EdgeInsets.fromLTRB(0, 10, 0, 20)
-            : EdgeInsets.fromLTRB(0, 20, 0, 20),
-        height: size.width < 480 ? size.height * .08 : size.height * .15,
-        width: size.width < 480 ? size.width * .5 : size.width * .3,
+        margin: /*size.width < 480
+            ?*/ EdgeInsets.fromLTRB(0, 10, 0, 20),
+            //: EdgeInsets.fromLTRB(0, 20, 0, 20),
+        height: /*size.width < 480 ? */size.height * .08 ,//: size.height * .15,
+        width: /*size.width < 480 ?*/ size.width * .55, //: size.width * .3,
         decoration: BoxDecoration(
-            color: lightgreen, borderRadius: BorderRadius.circular(20)),
+            color: lightgreen, borderRadius: BorderRadius.circular(10)),
         child: Center(child: logintext(context)),
       ),
     );
-  });
+ // });
 
 }

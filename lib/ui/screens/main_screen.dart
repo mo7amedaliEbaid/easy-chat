@@ -4,9 +4,12 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../models/user.dart';
 import 'chat_screen.dart';
+import 'groupchat.dart';
+import 'onboarding_screen.dart';
 
 class MainScreen extends StatefulWidget {
   UserModel user;
@@ -35,6 +38,26 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+            actions: [
+              IconButton(
+                  onPressed: () async {
+                    await GoogleSignIn().signOut();
+                    await FirebaseAuth.instance.signOut();
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const OnBoardingScreen()),
+                            (route) => false);
+                  },
+                  icon: const Icon(Icons.logout)),
+              IconButton(onPressed: (){
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                      builder: (_) => GroupChatHomeScreen()//ChatRoom(chatRoomId: chatRoomId, userMap: userMap),
+                  ),
+                );
+              }, icon: Icon(Icons.group))
+            ],
             title: Card(
               child: TextField(
                 decoration: InputDecoration(

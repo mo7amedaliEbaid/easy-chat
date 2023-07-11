@@ -1,3 +1,4 @@
+/*
 // ignore_for_file: must_be_immutable, library_private_types_in_public_api, use_build_context_synchronously
 
 import 'dart:developer';
@@ -7,11 +8,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:intl/intl.dart';
-
 import '../../models/user.dart';
 import 'chat_screen.dart';
 import 'groupchat.dart';
-import 'hs.dart';
+import 'main_screen.dart';
 import 'onboarding_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -54,11 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               icon: const Icon(Icons.logout)),
           IconButton(onPressed: (){
-          /*  Navigator.of(context).push(
+           Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (_) => ChatRoom(chatRoomId: chatRoomId, userMap: userMap),
+                builder: (_) => GroupChatHomeScreen()//ChatRoom(chatRoomId: chatRoomId, userMap: userMap),
               ),
-            );*/
+            );
           }, icon: Icon(Icons.group))
         ],
       ),
@@ -185,3 +185,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+*/
