@@ -12,7 +12,7 @@ import '../../constants/texts.dart';
 import '../../services/localization.dart';
 import '../widgets/language_buttons.dart';
 import '../widgets/login_button.dart';
-import '../widgets/register_button.dart';
+import '../widgets/googlesignin_button.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -121,14 +121,14 @@ Widget buildnormalonboard_body(BuildContext context) {
         welcometext(context),
         InkWell(
           onTap: (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AuthScreen()));
+          //  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AuthScreen()));
           },
           child: Lottie.asset('assets/lottie/online-chat.json',
               height: size.height * .45, width: size.width * .85),
         ),
-       // RegisterButton(context),
+        signinwithgoogle(),
         LoginButton(context),
-        LanguageButtons(),
+        Expanded(child: LanguageButtons()),
       ],
     ),
   );

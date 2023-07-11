@@ -1,4 +1,7 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import 'models/user.dart';
 import 'ui/screens/chat_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -10,7 +13,7 @@ import 'firebase_options.dart';
 import 'providers/auth_provider.dart';
 import 'providers/locale_provider.dart';
 import 'services/localization.dart';
-import 'ui/screens/chating_screen.dart';
+import 'ui/screens/home.dart';
 import 'ui/screens/onboarding_screen.dart';
 
 void main()async {
@@ -18,13 +21,6 @@ void main()async {
   await Firebase.initializeApp(
       name: "com.example.chat_app",
       options: DefaultFirebaseOptions.currentPlatform
-   // options:  DefaultFirebaseOptions.currentPlatform,
-    /*FirebaseOptions(
-      apiKey: "AIzaSyALkiNMpJD-PVevrs7nuFck1HMkNtS00Bc",
-      appId: "1:966826657989:android:bb27d7664a792f8adcc8ac",
-      messagingSenderId: "966826657989-6obk3tkvg0c31ettroca1hsr66c9m2io.apps.googleusercontent.com",
-      projectId: "easy-chat-84b64",
-    ),*/
   );
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => LocaleProvider()),
@@ -37,6 +33,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<Widget> userSignedIn() async {
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        DocumentSnapshot userData = await FirebaseFirestore.instance
+            .collection('users')
+            .doc(user.uid)
+            .get();
+        UserModel userModel = UserModel.fromJson(userData);
+        return HomeScreen(userModel);
+      } else {
+        return const OnBoardingScreen();
+      }
+    }
     return Consumer<LocaleProvider>(builder: (context, localedata, _) {
       return MaterialApp(
         locale: localedata.locale,
@@ -60,7 +69,18 @@ class MyApp extends StatelessWidget {
           return supportedLocales.first;
         },*/
         debugShowCheckedModeBanner: false,
-        home:  StreamBuilder(
+        home:FutureBuilder(
+            future: userSignedIn(),
+            builder: (context, AsyncSnapshot<Widget> snapshot) {
+              if (snapshot.hasData) {
+                return snapshot.data!;
+              }
+              return const Scaffold(
+                body: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            })); /* StreamBuilder(
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (ctx, snapShot) {
               if (snapShot.connectionState == ConnectionState.waiting) {
@@ -73,7 +93,7 @@ class MyApp extends StatelessWidget {
               }
             }),
      //   OnBoardingScreen(),
-      );
+      );*/
     });
   }
 }

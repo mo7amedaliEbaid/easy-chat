@@ -44,12 +44,32 @@ dependencies:
   cloud_firestore:
   connectivity_plus:
   flutter_spinkit:
+  google_sign_in: 
   firebase_storage:
+  uuid: ^3.0.4
 #  country_picker:
 #  flutter_riverpod:
   image_picker:
   provider:
   flutter_launcher_icons:
+#  jiffy:
+#  chewie:
+#  flutter_local_notifications: ^10.0.0-dev.3
+#  mime:
+#  file_picker:
+# video_player:
+#  dio:
+#  open_file:
+#  flutter_sound:
+#  permission_handler:
+#  just_audio:
+#  path_provider:
+#  audioplayers:
+#  agora_rtc_engine:
+#  fluttertoast:
+#  awesome_notifications:
+#  get:
+#  firebase_messaging:
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +104,7 @@ flutter:
     - assets/lang/en.json
     - assets/lottie/
     - assets/images/
+    - images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import '../lib1/ui/screens/auth_screen.dart';
+import '../lib1/ui/screens/googleauth_screen.dart';
 import '../lib1/ui/screens/splash_screen.dart';
 import '../lib1/ui/screens/chat_screen.dart';
 import 'firebase_options.dart';

@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
 import '../widgets/Auth_form.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -33,10 +34,11 @@ class _AuthScreenState extends State<AuthScreen> {
 
         final ref = FirebaseStorage.instance
             .ref()
-            .child('user_image')
+            .child('image')
             .child(authResult.user!.uid + '.jpg');
 
         await ref.putFile(image);
+
 
         final url = await ref.getDownloadURL();
 
@@ -44,10 +46,17 @@ class _AuthScreenState extends State<AuthScreen> {
             .collection('users')
             .doc(authResult.user?.uid)
             .set({
-          'username': username,
-          'password': password,
-          'image_url': url,
+          'email': email,
+          'uid': authResult.user!.uid ,
+          'date': DateTime.now(),
+          'name': username,
+         // 'password': password,
+          'image': url,
         });
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const MyApp()),
+                (route) => false);
       }
     } on FirebaseAuthException catch (e) {
       String message = "error Occurred";

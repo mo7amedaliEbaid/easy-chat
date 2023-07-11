@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
 import 'pickers/user_image_picker.dart';
 
 class AuthForm extends StatefulWidget {
@@ -43,6 +44,7 @@ class _AuthFormState extends State<AuthForm> {
       _formKey.currentState?.save();
       widget.submitFn(_email.trim(), _password.trim(), _username.trim(),
           _userImageFile, _isLogin, context);
+
     }
   }
 
@@ -65,7 +67,7 @@ class _AuthFormState extends State<AuthForm> {
                   textCapitalization: TextCapitalization.none,
                   key: ValueKey('email'),
                   validator: (val) {
-                    if (val!.isEmpty || val.contains('@')) {
+                    if (val!.isEmpty || !val.contains('@')) {
                       return "Please enter a valid email address";
                     }
                     return null;
