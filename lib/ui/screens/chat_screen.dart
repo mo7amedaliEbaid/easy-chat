@@ -5,27 +5,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../models/user.dart';
-import '../widgets/message_textfield.dart';
-import '../widgets/single_message.dart';
 class ChatRoom extends StatelessWidget {
- // final Map<String, dynamic> userMap;
   final String chatRoomId;
   final UserModel currentUser;
- // final Map<String, dynamic> userMap;
   final String friendId;
   final String friendName;
   final String friendImage;
-//  final String chatRoomId;
   ChatRoom({required this.chatRoomId, required this.currentUser,
     required this.friendId,
     required this.friendName,
     required this.friendImage,
-   // required this.userMap,
-    /*required this.chatRoomId*//*required this.userMap*/});
+  });
 
   final TextEditingController _message = TextEditingController();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -57,7 +50,7 @@ class ChatRoom extends StatelessWidget {
       "sendby": _auth.currentUser!.displayName,
       "message": "",
       "type": "img",
-      "date": DateTime.now(),
+     // "date": DateTime.now(),
       "time": FieldValue.serverTimestamp(),
     });
 
@@ -96,11 +89,7 @@ class ChatRoom extends StatelessWidget {
         "message": _message.text,
         "type": "text",
         "time": FieldValue.serverTimestamp(),
-       // "senderId": widget.currentId,
-      //  "receiverId": widget.friendId,
-        //"message": message,
-      //  "type": "text",
-        "date": DateTime.now(),
+      //  "date": DateTime.now(),
       };
 
       _message.clear();
@@ -150,31 +139,6 @@ class ChatRoom extends StatelessWidget {
         ],
       ),
     ),
-
-    /*AppBar(
-        title: StreamBuilder<DocumentSnapshot>(
-          stream:
-          _firestore.collection("users").doc(friendId*//*userMap['uid']*//*).snapshots(),
-          builder: (context, snapshot) {
-            if (snapshot.data != null) {
-              return Container(
-                child: Column(
-                  children: [
-                    Text(friendName*//*userMap['name']*//*),
-                    Text(
-                      friendId,
-                      //snapshot.data!['status'],
-                      style: TextStyle(fontSize: 14),
-                    ),
-                  ],
-                ),
-              );
-            } else {
-              return Container();
-            }
-          },
-        ),
-      ),*/
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -262,12 +226,6 @@ class ChatRoom extends StatelessWidget {
       decoration: BoxDecoration(
           color: isMe ? Colors.greenAccent : Colors.orange,
           borderRadius: const BorderRadius.all(Radius.circular(12))),
-      // child: Text(
-      //   message,
-      //   style: const TextStyle(
-      //     color: Colors.white,
-      //   ),
-      // )
       child: Row(
         children: [
           Container(
@@ -305,28 +263,6 @@ class ChatRoom extends StatelessWidget {
       ),
     )
 
-    /*Container(
-      width: size.width,
-      alignment: map['sendby'] == _auth.currentUser!.displayName
-          ? Alignment.centerLeft
-          : Alignment.centerRight,
-      child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Colors.blue,
-        ),
-        child: Text(
-          map['message'],
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Colors.white,
-          ),
-        ),
-      ),
-    )*/
         : Container(
       height: size.height / 2.5,
       width: size.width,

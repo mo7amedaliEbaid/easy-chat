@@ -8,7 +8,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../constants/global_constants.dart';
-import '../../constants/texts.dart';
+import '../widgets/texts.dart';
 import '../../services/localization.dart';
 import '../widgets/language_buttons.dart';
 import '../widgets/login_button.dart';
@@ -22,12 +22,12 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  //ConnectivityResult _connectionStatus = ConnectivityResult.none;
-  // final Connectivity _connectivity = Connectivity();
-  // late StreamSubscription<ConnectivityResult> _connectivitySubscription;
+  ConnectivityResult _connectionStatus = ConnectivityResult.none;
+  final Connectivity _connectivity = Connectivity();
+  late StreamSubscription<ConnectivityResult> _connectivitySubscription;
   bool _isLoading = false;
 
-/*  @override
+  @override
   void dispose() async {
     _connectivitySubscription.cancel();
     super.dispose();
@@ -38,7 +38,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     try {
       result = await _connectivity.checkConnectivity();
     } on PlatformException catch (e) {
-      //  developer.log('Couldn\'t check connectivity status', error: e);
+       developer.log('Couldn\'t check connectivity status', error: e);
       return;
     }
     if (!mounted) {
@@ -51,7 +51,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     setState(() {
       _connectionStatus = result;
     });
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,21 +64,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 size: 70,
               ),
             )
-          : /*RefreshIndicator(
+          : RefreshIndicator(
               key: refreshIndicatorKey,
               onRefresh: _refresh,
-              child:*/
-          buildnormalonboard_body(
-              context) /*_connectionStatus == ConnectivityResult.none
-                  ? LayoutBuilder(
-                      builder: (BuildContext ctx, BoxConstraints constraints) {
-                        if (constraints.maxWidth < 480) {
-                          return buildnormalonboard_body(context);
-                        } else {
-                          return buildwideonboard_body(context);
-                        }
-                      },
-                    )
+              child: _connectionStatus == ConnectivityResult.none
+                  ? buildonboard_body(context)
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -97,12 +87,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                       decoration: TextDecoration.underline)),
                         )
                       ],
-                    ))*/
-      ,
+                    )),
     );
   }
 
-/*  Future<void> _refresh() async {
+  Future<void> _refresh() async {
     setState(() {
       _isLoading = true;
     });
@@ -110,10 +99,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     setState(() {
       _isLoading = false;
     });
-  }*/
+  }
 }
 
-Widget buildnormalonboard_body(BuildContext context) {
+Widget buildonboard_body(BuildContext context) {
   Size size = MediaQuery.of(context).size;
   return Padding(
     padding: EdgeInsets.symmetric(
@@ -131,32 +120,3 @@ Widget buildnormalonboard_body(BuildContext context) {
     ),
   );
 }
-
-/*Widget buildwideonboard_body(BuildContext context) {
-  Size size = MediaQuery.sizeOf(context);
-  developer.log(size.width.toString());
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceAround,
-    children: [
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          welcometext(context),
-          Lottie.asset('assets/lottie/envelope.json',
-              width: size.width * .4, height: size.height * .6),
-        ],
-      ),
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-         // RegisterButton(context),
-          LanguageButtons(),
-SizedBox(
-  height:size.height*.1 ,
-),
-          LoginButton(context),
-        ],
-      )
-    ],
-  );
-}*/

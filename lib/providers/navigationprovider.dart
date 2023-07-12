@@ -4,7 +4,7 @@ class NavigationProvider extends ChangeNotifier{
   Route createRoute(Widget destination) {
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>
-       destination,  // AuthScreen(),
+       destination,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(0.0, 1.0);
         const end = Offset.zero;
@@ -20,4 +20,5 @@ class NavigationProvider extends ChangeNotifier{
       },
     );
   }
+
 }

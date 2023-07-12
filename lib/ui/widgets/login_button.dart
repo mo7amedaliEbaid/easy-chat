@@ -1,4 +1,3 @@
-
 import 'package:chat_app/providers/navigationprovider.dart';
 
 import '../screens/auth_screen.dart';
@@ -6,48 +5,31 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../constants/global_constants.dart';
-import '../../constants/texts.dart';
-import '../../providers/auth_provider.dart';
+import 'texts.dart';
 
 Widget LoginButton(BuildContext context) {
   Size size = MediaQuery.sizeOf(context);
-  NavigationProvider navigationProvider=Provider.of(context,listen: false);
- /* Route _createRoute() {
-    return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) =>
-       AuthScreen(),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(0.0, 1.0);
-        const end = Offset.zero;
-        const curve = Curves.ease;
-
-        var tween =
-        Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-        return SlideTransition(
-          position: animation.drive(tween),
-          child: child,
-        );
-      },
-    );
-  }*/
-
-  // return Consumer<AuthProvider>(builder: (context,authdata,_){
-    return InkWell(
-      onTap: () {
-        Navigator.of(context).push(navigationProvider.createRoute(AuthScreen())/*_createRoute()*/);
-      },
-      child: Container(
-        margin: /*size.width < 480
-            ?*/ EdgeInsets.fromLTRB(0, 10, 0, 20),
-            //: EdgeInsets.fromLTRB(0, 20, 0, 20),
-        height: /*size.width < 480 ? */size.height * .08 ,//: size.height * .15,
-        width: /*size.width < 480 ?*/ size.width * .55, //: size.width * .3,
-        decoration: BoxDecoration(
-            color: lightgreen, borderRadius: BorderRadius.circular(10)),
-        child: Center(child: logintext(context)),
-      ),
-    );
- // });
-
+  NavigationProvider navigationProvider = Provider.of(context, listen: false);
+  return InkWell(
+    onTap: () {
+      Navigator.of(context).push(
+          navigationProvider.createRoute(AuthScreen()));
+    },
+    child: Container(
+      margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
+      height: size.height * .08,
+      width: size.width * .6,
+      decoration: BoxDecoration(
+          color: lightgreen, borderRadius: BorderRadius.circular(10)),
+      child: Center(child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Image.asset("assets/images/caht.png",height: 25,width: 25,fit: BoxFit.fill,),
+          smallhorizontal_space,
+          signwitheasytext(context),
+        ],
+      )),
+    ),
+  );
+  // });
 }

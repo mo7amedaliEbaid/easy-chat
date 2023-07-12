@@ -42,16 +42,20 @@ dependencies:
   lottie:
   shared_preferences:
   cloud_firestore:
+#  http:
+#  path_provider:
+#  path:
   connectivity_plus:
   flutter_spinkit:
   google_sign_in: 
   firebase_storage:
   uuid: ^3.0.4
+  bottom_navy_bar:
 #  country_picker:
 #  flutter_riverpod:
   image_picker:
   provider:
-  flutter_launcher_icons:
+#  flutter_launcher_icons:
 #  jiffy:
 #  chewie:
 #  flutter_local_notifications: ^10.0.0-dev.3
@@ -74,10 +78,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-flutter_icons:
-  android: true
+#flutter_icons:
+#  android: true
   #ios: true
-  image_path: "assets/images/ic_landing1.png"
+#  image_path: "assets/images/ic_landing1.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -104,7 +108,6 @@ flutter:
     - assets/lang/en.json
     - assets/lottie/
     - assets/images/
-    - images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

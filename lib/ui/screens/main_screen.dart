@@ -4,8 +4,10 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../constants/global_constants.dart';
 import '../../models/user.dart';
 import 'chat_screen.dart';
 import 'groupchat.dart';
@@ -37,7 +39,9 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: scafold_background,
         appBar: AppBar(
+          backgroundColor: mygreen,
             actions: [
               IconButton(
                   onPressed: () async {
@@ -50,18 +54,11 @@ class _MainScreenState extends State<MainScreen> {
                             (route) => false);
                   },
                   icon: const Icon(Icons.logout)),
-              IconButton(onPressed: (){
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (_) => GroupChatHomeScreen()//ChatRoom(chatRoomId: chatRoomId, userMap: userMap),
-                  ),
-                );
-              }, icon: Icon(Icons.group))
             ],
             title: Card(
               child: TextField(
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search), hintText: 'Search...'),
+                    prefixIcon: Icon(Icons.search,color: mygreen,), hintText: 'Search...'),
                 onChanged: (val) {
                   setState(() {
                     name = val;
@@ -77,17 +74,16 @@ class _MainScreenState extends State<MainScreen> {
           builder: (context, snapshots) {
             return (snapshots.connectionState == ConnectionState.waiting)
                 ? Center(
-              child: CircularProgressIndicator(),
+              child:  SpinKitHourGlass(
+                color: mygreen,
+                size: 70,
+              ),
             )
                 : ListView.builder(
                 itemCount: snapshots.data!.docs.length,
                 itemBuilder: (context, index) {
                   var data = snapshots.data!.docs[index].data()
                   as Map<String, dynamic>;
-                  //  setState(() {
-                      //userMap=data;
-                  //    log("usermap=${userMap.toString()}");
-                  //  });
                   if (name.isEmpty) {
                     return ListTile(
                       title: Text(
@@ -104,17 +100,6 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                       trailing: IconButton(
                           onPressed: () {
-                          /*  await _firestore
-                                .collection('users')
-                                .where("email", isEqualTo: _search.text)
-                                .get()
-                                .then((value) {
-                              setState(() {
-                                userMap = value.docs[0].data();
-                                isLoading = false;
-                              });
-                              print(userMap);
-                            });*/
                             String roomId = chatRoomId(
                                 _auth.currentUser!.displayName!,
                                 data['name']);
@@ -127,7 +112,6 @@ class _MainScreenState extends State<MainScreen> {
                                         friendId: data['uid'],
                                         friendName: data['name'],
                                         friendImage: data['image'],
-                                  //  userMap: userMap,
                                       chatRoomId: roomId,
                                     )));
                           },

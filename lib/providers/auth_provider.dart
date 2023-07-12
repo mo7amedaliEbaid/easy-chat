@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:chat_app/ui/screens/main_screen.dart';
+import 'package:chat_app/ui/screens/root_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -63,7 +64,7 @@ class AuthProvider extends ChangeNotifier{
           .doc(user.uid)
           .get();
       UserModel userModel = UserModel.fromJson(userData);
-      return MainScreen(userModel);//HomeScreen(userModel);
+      return RootScreen( index: 0, userModel: userModel,);
     } else {
       return const OnBoardingScreen();
     }

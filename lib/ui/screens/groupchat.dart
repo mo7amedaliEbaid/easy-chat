@@ -1,3 +1,4 @@
+import 'package:chat_app/constants/global_constants.dart';
 import 'package:chat_app/models/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -655,7 +656,9 @@ class _GroupChatHomeScreenState extends State<GroupChatHomeScreen> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: scafold_background,
       appBar: AppBar(
+        backgroundColor: mygreen,
         title: Text("Groups"),
       ),
       body: isLoading

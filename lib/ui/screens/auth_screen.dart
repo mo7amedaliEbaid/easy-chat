@@ -1,8 +1,8 @@
-
+import 'package:chat_app/constants/global_constants.dart';
 import 'package:chat_app/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../widgets/Auth_form.dart';
+import '../widgets/auth_form.dart';
 
 class AuthScreen extends StatefulWidget {
   @override
@@ -10,14 +10,19 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider=Provider.of<AuthProvider>(context,listen: false);
+    AuthProvider authProvider =
+        Provider.of<AuthProvider>(context, listen: false);
 
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: AuthForm(authProvider.submitAuthForm),
+      backgroundColor: scafold_background,
+      body: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/background.jpg"),
+                  fit: BoxFit.fill)),
+          child: AuthForm(authProvider.submitAuthForm)),
     );
   }
 }

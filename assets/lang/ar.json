@@ -1,16 +1,21 @@
 {
   "welcome": "أهلا بك فى ايزى شات",
   "register": "انشاء حساب",
-  "login": "تسجيل الدخول",
+  "signwitheasy": "تسجيل دخول عبر ايزى شات",
+  "signwithgoogle": "تسجيل دخول عبر جوجل",
   "english":"انجليزى",
   "arabic":"عربى",
+  "login": "تسجيل الدخول",
+  "createaccount": "انشاء حساب جديد",
+  "alreadyhaveaccount": "لدى حساب بالفعل",
+  "signup": "تسجيل الدخول",
   "notification": "الاشعارات",
   "dark_mode":"الوضع الليلي",
   "email":"البريد الالكترونى",
-  "search":"ابحث",
+  "username":"اسم المستخدم",
+  "search":"ابحث عن طريق الايميل",
   "language" : "اللغة",
   "currency": "العملة",
-  "about_ebaid_store":"عن متجر عبيد",
   "enter_your_email":"سجل بريدك الالكترونى",
   "emailvalidate": "ادخل البريد الالكترونى",
   "password":"الرقم السري",
@@ -26,5 +31,5 @@
   "cart": "السلة",
   "account": "حسابى",
   "client_name": "اسم العميل",
-  "pass_validate": "من فضلك ادخل الرقم السرى"
+  "pass_validate": "على الاقل سبع عناصر"
 }
