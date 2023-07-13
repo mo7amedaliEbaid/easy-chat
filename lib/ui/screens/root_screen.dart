@@ -2,6 +2,7 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:chat_app/models/user.dart';
 import 'package:chat_app/ui/screens/groupchat.dart';
 import 'package:chat_app/ui/screens/main_screen.dart';
+import 'package:chat_app/ui/screens/videocall_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class _RootScreenState extends State<RootScreen> with WidgetsBindingObserver {
       body: PageView(
         physics: BouncingScrollPhysics(),
         controller: pageController,
-        children:  [MainScreen(widget.userModel), GroupChatHomeScreen()],
+        children:  [MainScreen(widget.userModel), GroupChatHomeScreen(),VideocallsScreen()],
         onPageChanged: (value) {
           setState(() {
             slectedIndex = value;
@@ -58,6 +59,18 @@ class _RootScreenState extends State<RootScreen> with WidgetsBindingObserver {
               title: Text(
                 "Groups",
               )),
+          BottomNavyBarItem(
+              activeColor: chosencolor,
+              textAlign: TextAlign.center,
+              inactiveColor: unchosencolor,
+              icon: const Icon(
+                CupertinoIcons.video_camera_solid,
+              ),
+              title: Text(
+                "Videos",
+                // style: textStyle.bodyNormal.copyWith(color: colors.primary),
+              )),
+
         ],
         onItemSelected: (value) {
           setState(() {

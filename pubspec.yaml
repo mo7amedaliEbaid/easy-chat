@@ -42,7 +42,7 @@ dependencies:
   lottie:
   shared_preferences:
   cloud_firestore:
-#  http:
+  http:
 #  path_provider:
 #  path:
   connectivity_plus:
@@ -65,11 +65,12 @@ dependencies:
 #  dio:
 #  open_file:
 #  flutter_sound:
-#  permission_handler:
+  permission_handler:
 #  just_audio:
 #  path_provider:
 #  audioplayers:
-#  agora_rtc_engine:
+  agora_rtc_engine:
+
 #  fluttertoast:
 #  awesome_notifications:
 #  get:
