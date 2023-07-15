@@ -1,5 +1,5 @@
 import 'dart:developer';
-import 'package:chat_app/ui/screens/main_screen.dart';
+import 'package:chat_app/ui/screens/home_screen.dart';
 import 'package:chat_app/ui/screens/root_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'dart:io';
 import '../main.dart';
-import '../models/message_model.dart';
-import '../models/user.dart';
 import '../ui/screens/onboarding_screen.dart';
 
 class AuthProvider extends ChangeNotifier{
@@ -19,9 +17,6 @@ class AuthProvider extends ChangeNotifier{
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
   bool isloading = false;
 
- /* changeswitch_text(){
-    isloading=!isloading;
-  }*/
   Future signInFunction(BuildContext context) async {
     GoogleSignInAccount? googleUser = await googleSignIn.signIn();
     if (googleUser == null) {
@@ -63,8 +58,7 @@ class AuthProvider extends ChangeNotifier{
           .collection('users')
           .doc(user.uid)
           .get();
-      UserModel userModel = UserModel.fromJson(userData);
-      return RootScreen( index: 0, userModel: userModel,);
+      return RootScreen( index: 0,);
     } else {
       return const OnBoardingScreen();
     }
@@ -74,9 +68,7 @@ class AuthProvider extends ChangeNotifier{
     UserCredential authResult;
 
     try {
-   //   setState(() {
         isloading = true;
-   //   });
       if (isLogin) {
         authResult = await _auth.signInWithEmailAndPassword(
             email: email, password: password);
@@ -95,7 +87,7 @@ class AuthProvider extends ChangeNotifier{
       } else {
         authResult = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
-
+        authResult.user!.updateDisplayName(username);
         final ref = FirebaseStorage.instance
             .ref()
             .child('image')
@@ -140,56 +132,22 @@ class AuthProvider extends ChangeNotifier{
         backgroundColor: Colors.red,
       ));
       isloading = false;
-
-      /*setState(() {
-        _isLoading = false;
-      });*/
     } catch (e) {
       print(e);
       isloading = false;
 
-      /*  setState(() {
-        _isLoading = false;
-      });*/
     }
   }
- /* get user => _auth.currentUser;
-  //SIGN UP METHOD
-  Future signUp({required String email, required String password}) async {
+  Future logOut(BuildContext context) async {
+    FirebaseAuth _auth = FirebaseAuth.instance;
+
     try {
-      var userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      if (userCredential.user !=null) {
-        log("trueeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-        return "true";
-      }
-    } on FirebaseAuthException catch (e) {
-      log("errorrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-      return e.message;
+      await _auth.signOut().then((value) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => OnBoardingScreen()));
+      });
+    } catch (e) {
+      print("error");
     }
   }
-
-  //SIGN IN METHOD
-  Future signIn({required String email, required String password}) async {
-    try {
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
-      if(user != null) {
-        log("llllllllllllllllllllllllllllllllll$email");
-        log("uuuuuuuuuuuuuuuuuussssssssssssseeeeeeeeeeeeeeerrrrrrrrrrrrrrrr$user");
-        return "Welcome";
-      }
-    } on FirebaseAuthException catch (e) {
-      return e.message;
-    }
-  }
-
-  //SIGN OUT METHOD
-  Future signOut() async {
-    await _auth.signOut();
-  }
-  List<Message> messages=[];
-*/
-
 }

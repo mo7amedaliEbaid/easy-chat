@@ -25,7 +25,7 @@ class _signinwithgoogleState extends State<signinwithgoogle> {
       },
       child: Container(
         width: size.width * .6,
-        height: size.height * .07,
+        height: size.height * .05,
         decoration: BoxDecoration(
             color: lightgreen, borderRadius: BorderRadius.circular(10)),
         child: Row(
@@ -33,8 +33,8 @@ class _signinwithgoogleState extends State<signinwithgoogle> {
           children: [
             Image.asset(
               'assets/images/google.png',
-              height: 25,
-              width: 25,
+              height: 20,
+              width: 20,
               fit: BoxFit.fill,
             ),
             smallhorizontal_space,

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:developer' as developer;
-import 'auth_screen.dart';
+import 'package:chat_app/constants/app_constants.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,7 +9,6 @@ import 'package:lottie/lottie.dart';
 
 import '../../constants/global_constants.dart';
 import '../widgets/texts.dart';
-import '../../services/localization.dart';
 import '../widgets/language_buttons.dart';
 import '../widgets/login_button.dart';
 import '../widgets/googlesignin_button.dart';
@@ -111,11 +110,13 @@ Widget buildonboard_body(BuildContext context) {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         welcometext(context),
-        Lottie.asset('assets/lottie/online-chat.json',
+        Lottie.asset(AppConstants.homelottie,
             height: size.height * .45, width: size.width * .85),
-        Expanded(child: signinwithgoogle()),
+      vertical_space,
+      signinwithgoogle(),
+        vertical_space,
         LoginButton(context),
-        Expanded(child: LanguageButtons()),
+         LanguageButtons()
       ],
     ),
   );

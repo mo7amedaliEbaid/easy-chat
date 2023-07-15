@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 final GlobalKey<RefreshIndicatorState> refreshIndicatorKey =
 new GlobalKey<RefreshIndicatorState>();
+final TextEditingController messagecontroller = TextEditingController();
+
 Color scafold_background = Color(0xffc8d7d7);
 Color mygreen = Color(0xff076c2d);
 Color lightgreen = Color(0xff21db69);
@@ -22,6 +24,11 @@ TextStyle greenstyle = TextStyle(
 TextStyle smallgreenstyle = TextStyle(
   color: mygreen,
   fontSize: 18,
+  fontWeight: FontWeight.bold,
+);
+TextStyle normalgreenstyle = TextStyle(
+  color: mygreen,
+  fontSize: 21,
   fontWeight: FontWeight.bold,
 );
 TextStyle bigwhite=TextStyle(
