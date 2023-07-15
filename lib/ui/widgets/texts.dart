@@ -51,42 +51,42 @@ Widget createaccounttext(BuildContext context){
     style: smallgreenstyle,
   );
 }
-Widget emailtext(BuildContext context){
+Widget creategrouptext(BuildContext context){
   return Text(
     AppLocalization.of(context)
-        .getTranslatedValue("email")
+        .getTranslatedValue("creategroup")
+        .toString(),
+     style: normalwhite,
+  );
+}
+Widget searchtext(BuildContext context){
+  return Text(
+    AppLocalization.of(context)
+        .getTranslatedValue("search")
         .toString(),
     // style: smallgreenstyle,
   );
 }
-Widget passtext(BuildContext context){
+Widget chatstext(BuildContext context){
   return Text(
     AppLocalization.of(context)
-        .getTranslatedValue("password")
+        .getTranslatedValue("chats")
         .toString(),
     // style: smallgreenstyle,
   );
 }
-Widget usernametext(BuildContext context){
+Widget groupstext(BuildContext context){
   return Text(
     AppLocalization.of(context)
-        .getTranslatedValue("username")
-        .toString(),
-    // style: smallgreenstyle,
-  );
-}
-Widget validateemailtext(BuildContext context){
-  return Text(
-    AppLocalization.of(context)
-        .getTranslatedValue("emailvalidate")
+        .getTranslatedValue("groups")
         .toString(),
    // style: smallgreenstyle,
   );
 }
-Widget validatepasstext(BuildContext context){
+Widget videocallstext(BuildContext context){
   return Text(
     AppLocalization.of(context)
-        .getTranslatedValue("pass_validate")
+        .getTranslatedValue("videocalls")
         .toString(),
     // style: smallgreenstyle,
   );

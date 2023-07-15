@@ -1,3 +1,4 @@
+import 'package:chat_app/constants/app_constants.dart';
 import 'package:chat_app/providers/auth_provider.dart';
 import 'package:chat_app/ui/widgets/texts.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class _signinwithgoogleState extends State<signinwithgoogle> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Image.asset(
-              'assets/images/google.png',
+              AppConstants.google_icon,
               height: 20,
               width: 20,
               fit: BoxFit.fill,

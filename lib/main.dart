@@ -1,7 +1,9 @@
+import 'package:chat_app/constants/global_constants.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
@@ -46,14 +48,15 @@ class MyApp extends StatelessWidget {
           ],
           debugShowCheckedModeBanner: false,
           home: FutureBuilder(
-              future: authProvider.userSignedIn(),//userSignedIn(),
+              future: authProvider.userSignedIn(),
               builder: (context, AsyncSnapshot<Widget> snapshot) {
                 if (snapshot.hasData) {
                   return snapshot.data!;
                 }
-                return const Scaffold(
+                return  Scaffold(
+                  backgroundColor: scafold_background,
                   body: Center(
-                    child: CircularProgressIndicator(),
+                    child: SpinKitWave(color: mygreen,size: 75,),
                   ),
                 );
               }));

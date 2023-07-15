@@ -1,7 +1,8 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:chat_app/ui/screens/grouphome_screen.dart';
-import 'package:chat_app/ui/screens/home_screen.dart';
+import 'package:chat_app/ui/screens/chats_screen.dart';
 import 'package:chat_app/ui/screens/videocall_screen.dart';
+import 'package:chat_app/ui/widgets/texts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,7 @@ class _RootScreenState extends State<RootScreen> with WidgetsBindingObserver {
       body: PageView(
         physics: BouncingScrollPhysics(),
         controller: pageController,
-        children:  [HomeScreen(), GroupChatHomeScreen(),VideocallsScreen()],
+        children:  [ChatsScreen(), GroupChatHomeScreen(),VideocallsScreen()],
         onPageChanged: (value) {
           setState(() {
             slectedIndex = value;
@@ -45,10 +46,7 @@ class _RootScreenState extends State<RootScreen> with WidgetsBindingObserver {
               icon: const Icon(
                 CupertinoIcons.chat_bubble_2_fill,
               ),
-              title: Text(
-                "Chats",
-               // style: textStyle.bodyNormal.copyWith(color: colors.primary),
-              )),
+              title:chatstext(context)),
           BottomNavyBarItem(
               activeColor: Colors.black,
               textAlign: TextAlign.center,
@@ -56,9 +54,7 @@ class _RootScreenState extends State<RootScreen> with WidgetsBindingObserver {
               icon: const Icon(
                 CupertinoIcons.group_solid,
               ),
-              title: Text(
-                "Groups",
-              )),
+              title:groupstext(context)),
           BottomNavyBarItem(
               activeColor: Colors.black,
               textAlign: TextAlign.center,
@@ -66,10 +62,7 @@ class _RootScreenState extends State<RootScreen> with WidgetsBindingObserver {
               icon: const Icon(
                 CupertinoIcons.video_camera_solid,
               ),
-              title: Text(
-                "Videos",
-                // style: textStyle.bodyNormal.copyWith(color: colors.primary),
-              )),
+              title: videocallstext(context)),
 
         ],
         onItemSelected: (value) {

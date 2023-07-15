@@ -1,10 +1,11 @@
 
+import 'package:chat_app/constants/app_constants.dart';
+
 import '../screens/auth_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../constants/global_constants.dart';
-import 'animated_navigation.dart';
+import 'animated_route.dart';
 import 'texts.dart';
 
 Widget LoginButton(BuildContext context) {
@@ -23,12 +24,11 @@ Widget LoginButton(BuildContext context) {
       child: Center(child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.asset("assets/images/caht.png",height: 20,width: 20,fit: BoxFit.fill,),
+          Image.asset(AppConstants.chat_icon,height: 20,width: 20,fit: BoxFit.fill,),
           smallhorizontal_space,
           signwitheasytext(context),
         ],
       )),
     ),
   );
-  // });
 }

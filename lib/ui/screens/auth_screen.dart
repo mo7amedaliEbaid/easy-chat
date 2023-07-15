@@ -1,3 +1,4 @@
+import 'package:chat_app/constants/app_constants.dart';
 import 'package:chat_app/constants/global_constants.dart';
 import 'package:chat_app/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _AuthScreenState extends State<AuthScreen> {
       body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/background.jpg"),
+                  image: AssetImage(AppConstants.background_image),
                   fit: BoxFit.fill)),
           child: AuthForm(authProvider.submitAuthForm)),
     );

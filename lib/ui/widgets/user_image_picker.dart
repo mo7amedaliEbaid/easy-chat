@@ -45,17 +45,14 @@ class _UserImagePickerState extends State<UserImagePicker> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-                //  textColor: Theme.of(context).primaryColor,
                 onPressed: () => _pickImage(ImageSource.camera),
                 icon: Icon(Icons.photo_camera_outlined),
                 tooltip: 'Add Image\nfrom Camera'),
             IconButton(
-                //   textColor: Theme.of(context).primaryColor,
                 onPressed: () => _pickImage(ImageSource.gallery),
                 icon: Icon(Icons.image_outlined),
                 tooltip: 'Add Image\nfrom Camera'
-                /* label:
-                  Text('Add Image\nfrom Gallery', textAlign: TextAlign.center),*/
+
                 ),
           ],
         ),

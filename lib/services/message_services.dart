@@ -77,5 +77,23 @@ class MessageServices{
       return "$user2$user1";
     }
   }
+  void onSendMessage(String groubchatid) async {
+    if (groubmessagecontroller.text.isNotEmpty) {
+      Map<String, dynamic> chatData = {
+        "sendBy": _auth.currentUser!.displayName,
+        "message": groubmessagecontroller.text,
+        "type": "text",
+        "time": FieldValue.serverTimestamp(),
+      };
+
+      groubmessagecontroller.clear();
+
+      await _firestore
+          .collection('groups')
+          .doc(groubchatid)
+          .collection('chats')
+          .add(chatData);
+    }
+  }
 
 }

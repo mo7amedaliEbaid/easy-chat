@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:chat_app/constants/global_constants.dart';
 import 'package:chat_app/services/message_services.dart';
@@ -20,15 +19,15 @@ class ChatRoom extends StatelessWidget {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   void onSendMessage() async {
-    if (messagecontroller.text.isNotEmpty) {
+    if (onemessagecontroller.text.isNotEmpty) {
       Map<String, dynamic> messages = {
         "sendby": _auth.currentUser!.displayName,
-        "message": messagecontroller.text,
+        "message": onemessagecontroller.text,
         "type": "text",
         "time": FieldValue.serverTimestamp(),
       };
 
-      messagecontroller.clear();
+      onemessagecontroller.clear();
       await _firestore
           .collection('chatroom')
           .doc(chatRoomId)
@@ -115,7 +114,7 @@ class ChatRoom extends StatelessWidget {
                       height: size.height / 17,
                       width: size.width / 1.3,
                       child: TextField(
-                        controller: messagecontroller,
+                        controller: onemessagecontroller,
                         onTapOutside: (event) =>
                             FocusScope.of(context).unfocus(),
                         decoration: InputDecoration(

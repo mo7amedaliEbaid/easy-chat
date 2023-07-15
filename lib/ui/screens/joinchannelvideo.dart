@@ -1,10 +1,9 @@
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
-//import 'package:chat_app/config.dart'as config;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/basicvideoconfg.dart';
-import '../widgets/example_actions.dart';
+import '../widgets/videocall_actions.dart';
 import '../widgets/logsink.dart';
 
 

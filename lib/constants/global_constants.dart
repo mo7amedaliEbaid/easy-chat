@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 final GlobalKey<RefreshIndicatorState> refreshIndicatorKey =
 new GlobalKey<RefreshIndicatorState>();
-final TextEditingController messagecontroller = TextEditingController();
+final TextEditingController onemessagecontroller = TextEditingController();
+final TextEditingController groubmessagecontroller = TextEditingController();
 
 Color scafold_background = Color(0xffc8d7d7);
 Color mygreen = Color(0xff076c2d);

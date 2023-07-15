@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'package:chat_app/ui/screens/home_screen.dart';
 import 'package:chat_app/ui/screens/root_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -34,8 +33,7 @@ class AuthProvider extends ChangeNotifier{
         .get();
 
     if (userExist.exists) {
-      // ignore: avoid_print
-      print("User Already Exists in Database");
+      log("User Already Exists in Database");
     } else {
       await _firestore.collection('users').doc(userCredential.user!.uid).set({
         'email': userCredential.user!.email,

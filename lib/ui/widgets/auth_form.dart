@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:chat_app/constants/app_constants.dart';
 import 'package:chat_app/constants/global_constants.dart';
 import 'package:chat_app/providers/auth_provider.dart';
 import 'package:chat_app/ui/widgets/texts.dart';
@@ -50,7 +51,7 @@ class _AuthFormState extends State<AuthForm> {
           _email.trim(),
           _password.trim(),
           _username.trim(),
-          _userImageFile ?? File("assets/images/avatar.png"),
+          _userImageFile ?? File(AppConstants.error_image),
           _isLogin,
           context);
     }
@@ -147,7 +148,6 @@ class _AuthFormState extends State<AuthForm> {
                           child: _isLogin
                               ? logintext(context)
                               : signuptext(context),
-                          /*Text(_isLogin ? 'Login' : 'Sign Up'),*/
                           onPressed: () {
                             _submit(context);
                           }),
@@ -156,12 +156,6 @@ class _AuthFormState extends State<AuthForm> {
                         child: _isLogin
                             ? createaccounttext(context)
                             : alradyhaveaccounttext(context),
-                        /*Text(
-                          _isLogin
-                              ? 'Create new account'
-                              : 'I already have an account',
-                          style: TextStyle(color: mygreen),
-                        ),*/
                         onPressed: () {
                           setState(() {
                             _isLogin = !_isLogin;

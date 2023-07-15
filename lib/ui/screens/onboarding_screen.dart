@@ -37,7 +37,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     try {
       result = await _connectivity.checkConnectivity();
     } on PlatformException catch (e) {
-       developer.log('Couldn\'t check connectivity status', error: e);
+      developer.log('Couldn\'t check connectivity status', error: e);
       return;
     }
     if (!mounted) {
@@ -112,11 +112,11 @@ Widget buildonboard_body(BuildContext context) {
         welcometext(context),
         Lottie.asset(AppConstants.homelottie,
             height: size.height * .45, width: size.width * .85),
-      vertical_space,
-      signinwithgoogle(),
+        vertical_space,
+        signinwithgoogle(),
         vertical_space,
         LoginButton(context),
-         LanguageButtons()
+        LanguageButtons()
       ],
     ),
   );
