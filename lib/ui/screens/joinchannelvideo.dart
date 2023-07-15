@@ -1,5 +1,5 @@
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
-import 'package:chat_app/config.dart'as config;
+//import 'package:chat_app/config.dart'as config;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +32,8 @@ class _State extends State<JoinChannelVideo> {
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController(text: config.channelId);
+    _controller = TextEditingController(text: ""//config.channelId
+    );
 
     _initEngine();
   }
@@ -51,7 +52,7 @@ class _State extends State<JoinChannelVideo> {
   Future<void> _initEngine() async {
     _engine = createAgoraRtcEngine();
     await _engine.initialize(RtcEngineContext(
-      appId: config.appId,
+      appId: ""//config.appId,
     ));
 
     _engine.registerEventHandler(RtcEngineEventHandler(
@@ -95,9 +96,9 @@ class _State extends State<JoinChannelVideo> {
 
   Future<void> _joinChannel() async {
     await _engine.joinChannel(
-      token: config.token,
+      token: "",//config.token,
       channelId: _controller.text,
-      uid: config.uid,
+      uid: 0,//config.uid,
       options: ChannelMediaOptions(
         channelProfile: _channelProfileType,
         clientRoleType: ClientRoleType.clientRoleBroadcaster,
