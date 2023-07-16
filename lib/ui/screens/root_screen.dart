@@ -1,7 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:chat_app/ui/screens/grouphome_screen.dart';
 import 'package:chat_app/ui/screens/chats_screen.dart';
-import 'package:chat_app/ui/screens/videocall_screen.dart';
+import 'package:chat_app/ui/screens/videocalls_screen.dart';
 import 'package:chat_app/ui/widgets/texts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class _RootScreenState extends State<RootScreen> with WidgetsBindingObserver {
       body: PageView(
         physics: BouncingScrollPhysics(),
         controller: pageController,
-        children:  [ChatsScreen(), GroupChatHomeScreen(),VideocallsScreen()],
+        children:  [ChatsScreen(), GroupChatHomeScreen(),VideoCallsScreen()],
         onPageChanged: (value) {
           setState(() {
             slectedIndex = value;

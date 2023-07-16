@@ -1,4 +1,5 @@
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+import 'package:chat_app/constants/global_constants.dart';
 import 'package:flutter/material.dart';
 
 class BasicVideoConfigurationWidget extends StatefulWidget {
@@ -79,9 +80,7 @@ class _BasicVideoConfigurationWidgetState
             widget.title,
             style: const TextStyle(fontSize: 10),
           ),
-          const SizedBox(
-            height: 10,
-          ),
+         vertical_space,
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
@@ -104,9 +103,7 @@ class _BasicVideoConfigurationWidgetState
                   ],
                 ),
               ),
-              const SizedBox(
-                width: 10,
-              ),
+              vertical_space,
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -127,9 +124,7 @@ class _BasicVideoConfigurationWidgetState
               ),
             ],
           ),
-          const SizedBox(
-            height: 10,
-          ),
+          vertical_space,
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
@@ -152,9 +147,7 @@ class _BasicVideoConfigurationWidgetState
                   ],
                 ),
               ),
-              const SizedBox(
-                width: 10,
-              ),
+              vertical_space,
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -175,9 +168,7 @@ class _BasicVideoConfigurationWidgetState
               ),
             ],
           ),
-          const SizedBox(
-            width: 10,
-          ),
+          vertical_space,
           ElevatedButton(
             child: widget.setConfigButtonText,
             onPressed: () {

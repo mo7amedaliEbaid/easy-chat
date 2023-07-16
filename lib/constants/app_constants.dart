@@ -6,4 +6,5 @@ class AppConstants{
   static const String error_image="assets/images/avatar.png";
   static const String chat_icon="assets/images/caht.png";
   static const String google_icon="assets/images/google.png";
+  static const String videolottie="assets/lottie/videocall.json";
 }

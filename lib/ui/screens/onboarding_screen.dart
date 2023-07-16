@@ -21,13 +21,21 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  bool _isLoading = false;
   ConnectivityResult _connectionStatus = ConnectivityResult.none;
   final Connectivity _connectivity = Connectivity();
   late StreamSubscription<ConnectivityResult> _connectivitySubscription;
-  bool _isLoading = false;
 
   @override
-  void dispose() async {
+  void initState() {
+    super.initState();
+    initConnectivity();
+    _connectivitySubscription =
+        _connectivity.onConnectivityChanged.listen(_updateConnectionStatus);
+  }
+
+  @override
+  void dispose()async {
     _connectivitySubscription.cancel();
     super.dispose();
   }
@@ -45,13 +53,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     }
     return _updateConnectionStatus(result);
   }
-
   Future<void> _updateConnectionStatus(ConnectivityResult result) async {
     setState(() {
       _connectionStatus = result;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +72,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           : RefreshIndicator(
               key: refreshIndicatorKey,
               onRefresh: _refresh,
-              child: _connectionStatus == ConnectivityResult.none
+              child: _connectionStatus != ConnectivityResult.none
                   ? buildonboard_body(context)
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,

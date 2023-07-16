@@ -1,12 +1,11 @@
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+import 'package:chat_app/constants/global_constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
+import 'package:chat_app/config.dart'as config;
 import '../widgets/basicvideoconfg.dart';
 import '../widgets/videocall_actions.dart';
 import '../widgets/logsink.dart';
-
-
 
 /// MultiChannel Example
 class JoinChannelVideo extends StatefulWidget {
@@ -31,8 +30,8 @@ class _State extends State<JoinChannelVideo> {
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController(text: ""//config.channelId
-    );
+    _controller = TextEditingController(text: config.channelId
+        );
 
     _initEngine();
   }
@@ -50,9 +49,8 @@ class _State extends State<JoinChannelVideo> {
 
   Future<void> _initEngine() async {
     _engine = createAgoraRtcEngine();
-    await _engine.initialize(RtcEngineContext(
-      appId: ""//config.appId,
-    ));
+    await _engine.initialize(RtcEngineContext(appId: config.appId,
+        ));
 
     _engine.registerEventHandler(RtcEngineEventHandler(
       onError: (ErrorCodeType err, String msg) {
@@ -95,9 +93,9 @@ class _State extends State<JoinChannelVideo> {
 
   Future<void> _joinChannel() async {
     await _engine.joinChannel(
-      token: "",//config.token,
+      token:config.token,
       channelId: _controller.text,
-      uid: 0,//config.uid,
+      uid:config.uid,
       options: ChannelMediaOptions(
         channelProfile: _channelProfileType,
         clientRoleType: ClientRoleType.clientRoleBroadcaster,
@@ -135,20 +133,20 @@ class _State extends State<JoinChannelVideo> {
                 },
               ),
               Align(
-                alignment: Alignment.topLeft,
+                alignment: Alignment.topCenter,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: List.of(remoteUid.map(
-                          (e) => SizedBox(
-                        width: 120,
-                        height: 120,
+                      (e) => SizedBox(
+                        width: 520,
+                        height: 320,
                         child: AgoraVideoView(
                           controller: VideoViewController.remote(
                             rtcEngine: _engine,
                             canvas: VideoCanvas(uid: e),
                             connection:
-                            RtcConnection(channelId: _controller.text),
+                                RtcConnection(channelId: _controller.text),
                             useFlutterTexture: _isUseFlutterTexture,
                             useAndroidSurfaceView: _isUseAndroidSurfaceView,
                           ),
@@ -168,11 +166,11 @@ class _State extends State<JoinChannelVideo> {
           ];
           final items = channelProfileType
               .map((e) => DropdownMenuItem(
-            child: Text(
-              e.toString().split('.')[1],
-            ),
-            value: e,
-          ))
+                    child: Text(
+                      e.toString().split('.')[1],
+                    ),
+                    value: e,
+                  ))
               .toList();
 
           return Column(
@@ -203,10 +201,10 @@ class _State extends State<JoinChannelVideo> {
                               onChanged: isJoined
                                   ? null
                                   : (changed) {
-                                setState(() {
-                                  _isUseFlutterTexture = changed;
-                                });
-                              },
+                                      setState(() {
+                                        _isUseFlutterTexture = changed;
+                                      });
+                                    },
                             )
                           ]),
                     if (defaultTargetPlatform == TargetPlatform.android)
@@ -221,17 +219,16 @@ class _State extends State<JoinChannelVideo> {
                               onChanged: isJoined
                                   ? null
                                   : (changed) {
-                                setState(() {
-                                  _isUseAndroidSurfaceView = changed;
-                                });
-                              },
+                                      setState(() {
+                                        _isUseAndroidSurfaceView = changed;
+                                      });
+                                    },
                             ),
                           ]),
                   ],
                 ),
-              const SizedBox(
-                height: 20,
-              ),
+              vertical_space,
+              vertical_space,
               const Text('Channel Profile: '),
               DropdownButton<ChannelProfileType>(
                 items: items,
@@ -239,14 +236,13 @@ class _State extends State<JoinChannelVideo> {
                 onChanged: isJoined
                     ? null
                     : (v) {
-                  setState(() {
-                    _channelProfileType = v!;
-                  });
-                },
+                        setState(() {
+                          _channelProfileType = v!;
+                        });
+                      },
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              vertical_space,
+              vertical_space,
               BasicVideoConfigurationWidget(
                 rtcEngine: _engine,
                 title: 'Video Encoder Configuration',
@@ -255,16 +251,16 @@ class _State extends State<JoinChannelVideo> {
                   style: TextStyle(fontSize: 10),
                 ),
                 onConfigChanged: (width, height, frameRate, bitrate) {
-                  _engine.setVideoEncoderConfiguration(VideoEncoderConfiguration(
+                  _engine
+                      .setVideoEncoderConfiguration(VideoEncoderConfiguration(
                     dimensions: VideoDimensions(width: width, height: height),
                     frameRate: frameRate,
                     bitrate: bitrate,
                   ));
                 },
               ),
-              const SizedBox(
-                height: 20,
-              ),
+              vertical_space,
+              vertical_space,
               Row(
                 children: [
                   Expanded(
@@ -278,9 +274,8 @@ class _State extends State<JoinChannelVideo> {
               ),
               if (defaultTargetPlatform == TargetPlatform.android ||
                   defaultTargetPlatform == TargetPlatform.iOS) ...[
-                const SizedBox(
-                  height: 20,
-                ),
+                vertical_space,
+                vertical_space,
                 ElevatedButton(
                   onPressed: _switchCamera,
                   child: Text('Camera ${switchCamera ? 'front' : 'rear'}'),
