@@ -22,28 +22,28 @@ Easy Chat is a flutter app for Online Messaging ( Textual, Images ), Group Chats
 
 #### firebase
 firebase_core:      
-firebase_auth:
-google_sign_in:
-cloud_firestore:
-firebase_storage:
+firebase_auth:      
+google_sign_in:     
+cloud_firestore:        
+firebase_storage:       
 
 
 
 #### features management
-flutter_localizations:
-image_picker:
-provider:
-permission_handler:
-agora_rtc_engine:
-connectivity_plus:
-uuid:
+flutter_localizations:      
+image_picker:       
+provider:       
+permission_handler:     
+agora_rtc_engine:       
+connectivity_plus:      
+uuid:       
 
 
 
 #### ui
-bottom_navy_bar: 
-flutter_spinkit:        
-lottie:
+bottom_navy_bar:        
+flutter_spinkit:            
+lottie:     
 
 ## TODO
 Generate unique id and token for video calls instead of temp token which i used.       
@@ -52,16 +52,17 @@ Sending notifications for coming calls and messages.
 
 
 ## Screen Shots
+        
+        
+For more screen shots https://github.com/mo7amedaliEbaid/easy-chat/tree/master/easychat_screenshots         
+        
 
-<p float="left">
-  <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/room1.png" width="200" />
-  <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/chats.png" width="120" /> 
-  <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/creatacc2.png" width="120" />
-   <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/onetoone.png" width="120" />
-   <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/onboarding.png" width="120" />
-   <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/videocall.png" width="120" />
-   <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/offline.png" width="120" />
-</p>
+![alt text](https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/room1.png?raw=true)
+![alt text](https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/chats.png?raw=true)
+![alt text](https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/creatacc2.png?raw=true)
+![alt text](https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/onetoone.png?raw=true)
+![alt text](https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/onboarding.png?raw=true)
+![alt text](https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/videocall.png?raw=true)
+![alt text](https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/offline.png?raw=true)
 
-For more screen shots https://github.com/mo7amedaliEbaid/easy-chat/tree/master/easychat_screenshots
 ## Video
