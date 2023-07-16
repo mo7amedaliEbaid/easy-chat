@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants/global_constants.dart';
 import '../../models/language_model.dart';
@@ -35,8 +34,6 @@ class _LanguageButtonsState extends State<LanguageButtons> {
                             .languageList()
                             .first, context));
                   });
-                  SharedPreferences prefs = await SharedPreferences.getInstance();
-                  prefs.setBool("is_arabic",false);
                 },
                 child: Container(
                   height:
@@ -65,8 +62,6 @@ class _LanguageButtonsState extends State<LanguageButtons> {
                             .languageList()
                             .last, context));
                   });
-                  SharedPreferences prefs = await SharedPreferences.getInstance();
-                  prefs.setBool("is_arabic",true);
                 },
                 child: Container(
                   height:

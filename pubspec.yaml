@@ -15,25 +15,31 @@ dependencies:
     sdk: flutter
   intl: any
 
-
-
   cupertino_icons: ^1.0.2
+
+  #firbase
   firebase_core:
   firebase_auth:
-  lottie:
-  shared_preferences:
-  cloud_firestore:
-  http:
-  connectivity_plus:
-  flutter_spinkit:
-  google_sign_in: 
+  google_sign_in:
   firebase_storage:
+  cloud_firestore:
+
+  #features management
+  connectivity_plus:
   uuid: ^3.0.4
-  bottom_navy_bar:
   image_picker:
   provider:
   permission_handler:
   agora_rtc_engine:
+
+  #ui
+  flutter_spinkit:
+  bottom_navy_bar:
+  lottie:
+
+
+
+
 
 
 dev_dependencies:
