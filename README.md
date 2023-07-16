@@ -57,13 +57,15 @@ Sending notifications for coming calls and messages.
   <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/room1.png" width="350" />
 </p>
 <p float="left">
-  <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/chats.png" width="120" /> 
    <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/onetoone.png" width="120" />
-   <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/onboarding.png" width="120" />
    <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/videocall.png" width="120" />
 </p>
 <p float="left">
   <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/creatacc2.png" width="120" />
+  <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/chats.png" width="120" /> 
+</p>
+<p float="left">
+   <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/onboarding.png" width="120" />
    <img src="https://github.com/mo7amedaliEbaid/easy-chat/blob/2c6808e1c4103bd296aa6a690c91a3582f9dce2a/easychat_screenshots/offline.png" width="120" />
 </p>
 
