@@ -1,5 +1,5 @@
 # Easy Chat
-Easy Chat is a flutter app for Online Messaging ( Textual, Images ), Group Chats and Video Calls. It is backed by Firebase and Agora platform for video calls.      
+Easy Chat is a flutter app for Online Messaging ( Textual, Images ), Group Chats and Video Calls. It is backed by Firebase and Agora platform.      
 
 
 ## Features and Components
@@ -8,6 +8,7 @@ Easy Chat is a flutter app for Online Messaging ( Textual, Images ), Group Chats
 ✔️ Creating Groups <br />
 ✔️ Group messaging <br />
 ✔️ Video Calls <br />
+✔️ Image pickers <br />
 ✔️ Google Sign in <br />
 ✔️ Sign in by Email and Password <br />
 ✔️ Localization ( English, Arabic ) <br />
