@@ -6,7 +6,7 @@ Easy Chat is a flutter app for Online Messaging ( Textual, Images ), Group Chats
 
 ✔️ One to One messaging ( textual, images ) <br />
 ✔️ Creating Groups <br />
-✔️ Add and delete groups <br />
+✔️ Add and delete group members <br />
 ✔️ Group messaging <br />
 ✔️ Video Calls <br />
 ✔️ Image pickers <br />
