@@ -30,7 +30,6 @@ cloud_firestore:
 firebase_storage:       
 
 
-
 #### features management
 flutter_localizations:      
 image_picker:       
@@ -39,7 +38,6 @@ permission_handler:
 agora_rtc_engine:       
 connectivity_plus:      
 uuid:       
-
 
 
 #### ui
